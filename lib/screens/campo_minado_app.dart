@@ -1,4 +1,6 @@
+import 'package:campo_minado/components/campo_widget.dart';
 import 'package:campo_minado/components/resultado_widget.dart';
+import 'package:campo_minado/models/campo.dart';
 import 'package:flutter/material.dart';
 
 class CampoMinadoApp extends StatelessWidget {
@@ -6,6 +8,11 @@ class CampoMinadoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final campo = Campo(
+      linha: 0,
+      coluna: 0,
+    );
+
     return MaterialApp(
       home: Scaffold(
         appBar: ResultadoWidget(
@@ -13,7 +20,11 @@ class CampoMinadoApp extends StatelessWidget {
           quandoReiniciar: _reiniciar,
         ),
         body: Container(
-          child: Text('Campo Minado'),
+          child: CampoWidget(
+            campo: campo,
+            quandoAbrir: _abrir,
+            quandoAlternarMarcacao: _alternarMarcacao,
+          ),
         ),
       ),
     );
@@ -21,5 +32,13 @@ class CampoMinadoApp extends StatelessWidget {
 
   void _reiniciar() {
     print('reiniciar');
+  }
+
+  void _abrir(Campo c) {
+    print('abrindo');
+  }
+
+  void _alternarMarcacao(Campo c) {
+    print('abrindo marcação');
   }
 }
