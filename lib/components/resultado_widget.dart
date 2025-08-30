@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool? venceu;
-  final Function quandoReiniciar;
+  final void Function() quandoReiniciar;
 
   const ResultadoWidget({
     super.key,
@@ -20,7 +20,7 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
           child: CircleAvatar(
             backgroundColor: _getCor(),
             child: IconButton(
-              onPressed: null,
+              onPressed: quandoReiniciar,
               icon: Icon(
                 _getIcon(),
                 color: Colors.black,
