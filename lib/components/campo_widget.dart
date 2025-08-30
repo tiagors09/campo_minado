@@ -23,10 +23,24 @@ class CampoWidget extends StatelessWidget {
   }
 
   Widget _getImage() {
+    final qtdMinas = campo.qtdMinasNaVizinhanca;
+    String caminhoImagem = 'assets/images/fechado.jpeg';
+
     if (campo.aberto && campo.minado && campo.explodido) {
-      return Image.asset('assets/images/bomba_0.jpeg');
-    } else {
-      return Image.asset('assets/images/fechado.jpeg');
+      caminhoImagem = 'assets/images/bomba_0.jpeg';
+    } else if (campo.aberto && campo.minado) {
+      caminhoImagem = 'assets/images/bomba_1.jpeg';
+    } else if (campo.aberto) {
+      caminhoImagem = 'assets/images/aberto_$qtdMinas.jpeg';
+    } else if (campo.aberto) {
+      caminhoImagem = 'assets/images/aberto_$qtdMinas.jpeg';
+    } else if (campo.marcado) {
+      caminhoImagem = 'assets/images/bandeira.jpeg';
     }
+
+    return Image.asset(
+      caminhoImagem,
+      fit: BoxFit.cover,
+    );
   }
 }
