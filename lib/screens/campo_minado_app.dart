@@ -63,7 +63,6 @@ class _CampoMinadoAppState extends State<CampoMinadoApp> {
       _venceu = null;
       _tabuleiro!.reiniciar();
     });
-    setState(() {});
   }
 
   void _abrir(Campo c) {
